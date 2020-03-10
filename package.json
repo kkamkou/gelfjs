@@ -1,0 +1,32 @@
+{
+  "name": "gelfjs",
+  "version": "0.1.0",
+  "author": "Kanstantsin Kamkou <kkamkou@gmail.com>",
+  "description": "Graylog client library for node.js and browser",
+  "keywords": [
+    "graylog",
+    "gelf",
+    "logging",
+    "udp",
+    "tcp",
+    "tls",
+    "ssl",
+    "rest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kkamkou/gelfjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kkamkou/gelfjs/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "~4.17.15"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "typescript": "^3.8.3"
+  }
+}
