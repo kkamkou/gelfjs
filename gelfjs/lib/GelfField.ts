@@ -19,6 +19,6 @@ export class GelfField {
   }
 
   get content() {
-    return isFunction(this.value) ? this.value.call(null) : this.value;
+    return isFunction(this.value) ? (this.value as Function).call(undefined) : this.value;
   }
 }

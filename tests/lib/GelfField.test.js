@@ -7,8 +7,14 @@ test('create simple field', () => {
 });
 
 test('create field with dynamic content', () => {
-  const date = new Date().toISOString(),
-    field = new GelfField('facility', () => date);
+  const date = new Date().toISOString();
+
+  function fnc() {
+    expect(this).toBeUndefined();
+    return date;
+  }
+
+  const field = new GelfField('facility', fnc);
   expect(field.name).toEqual('facility');
   expect(field.content).toEqual(date);
 });
