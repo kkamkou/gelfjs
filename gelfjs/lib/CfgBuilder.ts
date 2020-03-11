@@ -5,19 +5,14 @@
  * @link    https://github.com/kkamkou/gelfjs
  * @license https://opensource.org/licenses/MIT
  */
-import noop from "lodash";
 
-import { CfgPropField } from "./CfgPropField";
+import { GelfField } from "./GelfField";
 
 export class CfgBuilder {
-  private fieldList: CfgPropField[] = [];
+  private fields: GelfField[] = [];
 
-  constructor() {
-    noop();
-  }
-
-  fields(fields: CfgPropField[]) {
-    this.fieldList = fields;
+  fields(fields: GelfField[]) {
+    this.fields = fields;
     return this;
   }
 
