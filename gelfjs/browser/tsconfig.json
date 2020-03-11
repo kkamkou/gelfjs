@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2016",
+    "outFile": "../../dist/browser/bundle.js",
+    "module": "amd"
+  }
+}
