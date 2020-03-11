@@ -1,7 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outFile": "../../dist/browser/bundle.js",
-    "module": "amd"
-  }
-}
