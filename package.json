@@ -22,11 +22,22 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash": "~4.17.15"
+    "lodash-es": "~4.17.15"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^25.1.4",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "babel-jest": "^25.1.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.1.0",
     "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

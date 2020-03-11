@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es2016",
     "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
