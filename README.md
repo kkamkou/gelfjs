@@ -1,4 +1,4 @@
-# Initial page
+# Introduction
 
 {% embed url="https://caniuse.com/\#feat=fetch" %}
 

@@ -1,6 +1,10 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Introduction](README.md)
+* [Installation](installation/README.md)
+  * [Node.js](installation/node.js.md)
+  * [Browser](installation/browser.md)
+* [Configuration](configuration.md)
 
 ## Adapters
 
