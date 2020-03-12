@@ -6,9 +6,9 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { isFunction } from "lodash-es";
+import { isFunction } from "lodash";
 
-export class GelfField {
+export default class GmField {
   constructor(
     private readonly label: string,
     private readonly value: string | (() => string)

@@ -6,19 +6,27 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { GelfField } from "./GelfField";
+import GmField from "./GmField";
+import GmFilter from "./GmFilter";
 
-export class CfgBuilder {
-  private fields: GelfField[] = [];
+export default class CfgBuilder {
+  private propFields: GmField[] = [];
+  private propFilters: GmFilter[] = [];
 
-  fields(fields: GelfField[]) {
-    this.fields = fields;
+  fields(fields: GmField[]) {
+    this.propFields = fields;
+    return this;
+  }
+
+  filters(filters: GmFilter[]) {
+    this.propFilters = filters;
     return this;
   }
 
   build() {
     return {
-      fields: this.fieldList
+      fields: this.propFields,
+      filters: this.propFilters
     };
   }
 }
