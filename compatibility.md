@@ -3,7 +3,7 @@
 ### Node.js
 
 {% hint style="info" %}
-Older version of node.js are supported by [node-gelf-pro](https://github.com/kkamkou/node-gelf-pro) `(node.js v0.12+)`
+Older version of node.js are supported by [node-gelf-pro](https://github.com/kkamkou/node-gelf-pro) `(v0.12+)`
 {% endhint %}
 
 | Version | End-of-life |
