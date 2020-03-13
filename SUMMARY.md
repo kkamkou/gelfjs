@@ -13,7 +13,7 @@
   * [TCP/IPC](adapters/node.js/tcp-ipc.md)
   * [UDP](adapters/node.js/udp.md)
   * [REST](adapters/node.js/http.md)
-* [Browser](adapters/browser/README.md)
+* [browser](adapters/browser/README.md)
   * [REST \(via Fetch API\)](adapters/browser/rest-via-fetch-api.md)
 * [Development](development.md)
 
