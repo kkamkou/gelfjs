@@ -2,6 +2,10 @@
 
 ### Node.js
 
+{% hint style="info" %}
+Older version of Node.js is supported by [node-gelf-pro](https://github.com/kkamkou/node-gelf-pro)
+{% endhint %}
+
 | Version | End-of-life |
 | :---: | :---: |
 | **10** | 2021-04-30 |
