@@ -10,7 +10,7 @@
 
 ### Browser
 
-| Name | Minimal Version |
+| Minimal Version |  |
 | :---: | :---: |
 |  |  |
 
