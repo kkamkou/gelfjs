@@ -1,4 +1,4 @@
-# Introduction
+# introduction
 
 {% embed url="https://caniuse.com/\#feat=fetch" %}
 

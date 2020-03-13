@@ -1,4 +1,4 @@
-# Node.js
+# node.js
 
 #### Node Package Manager \(**npm**\)
 
@@ -9,7 +9,7 @@ npm install gelfjs
 #### Yarn Package Manager \(**yarn**\)
 
 ```bash
-yarn add gelf-pro
+yarn add gelfjs
 ```
 
 
