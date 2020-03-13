@@ -8,15 +8,11 @@
 
 import { isFunction } from "lodash";
 
-export default class GmField {
+export default class GfField {
   constructor(
     private readonly label: string,
     private readonly value: string | number | (() => string | number)
-  ) {
-    if (label === 'id') {
-      throw Error('A field named "id" is not allowed by the specification');
-    }
-  }
+  ) {}
 
   get name() {
     return this.label;

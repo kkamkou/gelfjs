@@ -19,11 +19,11 @@ export default class CfgConfig {
     return this.proxy.filters;
   }
 
-  /*
-    get interceptors() {
-      return this.proxy.interceptors;
-    }
+  get transformers() {
+    return this.proxy.transformers;
+  }
 
+  /*
     get subscribers() {
       return this.proxy.subscribers;
     }

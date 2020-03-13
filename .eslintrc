@@ -1,7 +1,6 @@
 root: true
 env:
   node: true
-  mocha: true
 parser: '@typescript-eslint/parser'
 plugins:
   - '@typescript-eslint/eslint-plugin'
@@ -11,3 +10,4 @@ extends:
   - 'plugin:@typescript-eslint/recommended'
 rules:
   no-console: 1
+  max-len: ["error", {"code": 100}]

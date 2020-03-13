@@ -6,27 +6,40 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import GmField from "./GmField";
-import GmFilter from "./GmFilter";
+import { cloneDeep } from "lodash";
+import Adapter from "./Adapter";
+import GfField from "./GfField";
+import GfmFilter from "./GfmFilter";
+import GfmTransform from "./GfmTransform";
 
 export default class CfgBuilder {
-  private propFields: GmField[] = [];
-  private propFilters: GmFilter[] = [];
+  private lstField: GfField[] = [];
+  private lstFilters: GfmFilter[] = [];
+  private lstTransformers: GfmTransform[] = [];
 
-  fields(fields: GmField[]) {
-    this.propFields = fields;
+  constructor(private readonly adapter: Adapter) {}
+
+  fields(lst: GfField[]) {
+    this.lstField = lst;
     return this;
   }
 
-  filters(filters: GmFilter[]) {
-    this.propFilters = filters;
+  filters(lst: GfmFilter[]) {
+    this.lstFilters = lst;
+    return this;
+  }
+
+  transformers(lst: GfmTransform[]) {
+    this.lstTransformers = lst;
     return this;
   }
 
   build() {
     return {
-      fields: this.propFields,
-      filters: this.propFilters
+      adapter: cloneDeep(this.adapter),
+      fields: [...this.lstField],
+      filters: [...this.lstFilters],
+      transformers: [...this.lstTransformers]
     };
   }
 }

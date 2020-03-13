@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "strict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
     "alwaysStrict": true,
-    "noUnusedLocals": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es2016"
   }
 }
 
@@ -27,7 +28,7 @@
 // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
 // "composite": true,                     /* Enable project compilation */
 // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
-// "removeComments": true,                /* Do not emit comments to output. */
+
 // "noEmit": true,                        /* Do not emit outputs. */
 // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
 // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */

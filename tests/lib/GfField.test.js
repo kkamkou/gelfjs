@@ -1,7 +1,7 @@
-import GmField from "../../gelfjs/lib/GmField";
+import GfField from "../../gelfjs/lib/GfField";
 
 test('create simple field', () => {
-  const field = new GmField('facility', 'example');
+  const field = new GfField('facility', 'example');
   expect(field.name).toEqual('facility');
   expect(field.content).toEqual('example');
 });
@@ -14,11 +14,7 @@ test('create field with dynamic content', () => {
     return date;
   }
 
-  const field = new GmField('facility', fnc);
+  const field = new GfField('facility', fnc);
   expect(field.name).toEqual('facility');
   expect(field.content).toEqual(date);
-});
-
-test('handle not-allowed field names', () => {
-  expect(() => new GmField('id', 'example')).toThrowError();
 });

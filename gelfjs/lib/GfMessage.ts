@@ -7,19 +7,18 @@
  */
 
 import { forOwn, isFinite, isPlainObject, isUndefined, merge, toString, truncate } from "lodash";
-
-import GfMessageSpec from "./GfMessageSpec";
-import GmField from "./GmField";
+import GelfSpec from "./GelfSpec";
+import GfField from "./GfField";
 
 export default class GfMessage {
-  private readonly obj: GfMessageSpec = {
+  private readonly obj: GelfSpec = {
     host: 'unknown',
     short_message: 'No message', // eslint-disable-line
     timestamp: Math.floor(Date.now() / 1000),
     version: '1.1'
   };
 
-  constructor(private readonly fields?: GmField[]) {}
+  constructor(private readonly fields?: GfField[]) {}
 
   toJSON() {
     return merge({}, this.obj, ...(this.fields || []).map(field => field.toJSON()));

@@ -6,10 +6,8 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import GfMessage from "./GfMessage";
+import GfField from "./GfField";
 
-export default interface Adapter {
-  init(): Promise<void>;
-  destroy(): Promise<void>;
-  send(message: GfMessage): Promise<void>;
+export default interface GfmFilter {
+  accept(fields: GfField[]): Promise<boolean>;
 }
