@@ -18,3 +18,7 @@ test('create field with dynamic content', () => {
   expect(field.name).toEqual('facility');
   expect(field.content).toEqual(date);
 });
+
+test('handle not-allowed field names', () => {
+  expect(() => new GmField('id', 'example')).toThrowError();
+});

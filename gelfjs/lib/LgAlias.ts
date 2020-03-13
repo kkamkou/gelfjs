@@ -6,10 +6,11 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import GfMessage from "./GfMessage";
+import LgLevel from "./LgLevel";
 
-export default interface Adapter {
-  init(): Promise<unknown>;
-  destroy(): Promise<unknown>;
-  send(message: GfMessage): Promise<unknown>;
+enum LgAlias {
+  LOG = LgLevel.DEBUG,
+  WARN =  LgLevel.WARNING
 }
+
+export default LgAlias;

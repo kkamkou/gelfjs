@@ -11,7 +11,7 @@ export default class GmFilter {
     private readonly fnc: (msg: string) => boolean
   ) {}
 
-  filter(msg: string) {
+  filter(msg: string): boolean {
     return (this.fnc as Function).call(undefined, msg);
   }
 }

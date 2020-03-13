@@ -6,11 +6,11 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-export default interface GelfSpec {
-  full_message: string; // eslint-disable-line
+export default interface GfMessageSpec {
+  full_message?: string; // eslint-disable-line
   host: string;
-  level: number;
+  level?: number;
   short_message: string; // eslint-disable-line
-  timestamp: number;
+  timestamp?: number;
   version: string;
 }

@@ -6,7 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-export default enum LogLevels {
+enum LgLevel {
   EMERGENCY,
   ALERT,
   CRITICAL,
@@ -16,3 +16,5 @@ export default enum LogLevels {
   INFO,
   DEBUG
 }
+
+export default LgLevel;
