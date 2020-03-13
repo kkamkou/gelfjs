@@ -10,7 +10,12 @@
 
 ### Browser
 
-| Minimal Version |  |
+| Browser | Minimal Version |
 | :---: | :---: |
-|  |  |
+| **Edge** | 14 |
+| **Firefox** | 40 |
+| **Chrome** | 42 |
+| **Opera** | 29 |
+
+
 
