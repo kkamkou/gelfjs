@@ -11,6 +11,7 @@
 
 * [node.js](adapters/node.js/README.md)
   * [TCP/IPC](adapters/node.js/tcp-ipc.md)
+  * [TLS \(SSL\)](adapters/node.js/tls-ssl.md)
   * [UDP](adapters/node.js/udp.md)
   * [REST](adapters/node.js/http.md)
 * [browser](adapters/browser/README.md)
