@@ -6,41 +6,41 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import CfgBuilder from "./CfgBuilder";
+import { cloneDeep } from "lodash";
+
+import Adapter from "./Adapter";
+import GfField from "./GfField";
+import GfmFilter from "./GfmFilter";
+import GfmTransform from "./GfmTransform";
+import Verbosity from "./Verbosity";
 
 export default class CfgConfig {
-  private constructor(private readonly proxy: CfgBuilder) {}
+  constructor(
+    private readonly _adapter: Adapter,
+    private readonly _fields: GfField[],
+    private readonly _filters: GfmFilter[],
+    private readonly _verbosity: Verbosity,
+    private readonly _transformers: GfmTransform[]
+  ) {}
 
-  get fields() {
-    return this.proxy.fields;
+  adapter() {
+    return cloneDeep(this._adapter);
   }
 
-  get filters() {
-    return this.proxy.filters;
+  fields() {
+    return cloneDeep(this._fields);
   }
 
-  get transformers() {
-    return this.proxy.transformers;
+  filters() {
+    return cloneDeep(this._filters);
   }
 
-  /*
-    get subscribers() {
-      return this.proxy.subscribers;
-    }
-  */
-
-  get levels() {
-    return this.proxy.levels;
+  verbosity() {
+    return cloneDeep(this._verbosity);
   }
 
-  /*
-    get aliases() {
-      return this.proxy.aliases;
-    }
-  */
-
-  get adapter() {
-    return this.proxy.adapter;
+  transformers() {
+    return cloneDeep(this._transformers);
   }
 }
 

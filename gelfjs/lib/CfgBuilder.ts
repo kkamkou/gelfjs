@@ -6,16 +6,21 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { cloneDeep } from "lodash";
+import { uniqBy } from "lodash";
+
 import Adapter from "./Adapter";
+import CfgConfig from "./CfgConfig";
 import GfField from "./GfField";
 import GfmFilter from "./GfmFilter";
 import GfmTransform from "./GfmTransform";
+import VbDefault from "./VbDefault";
+import Verbosity from "./Verbosity";
 
 export default class CfgBuilder {
   private lstField: GfField[] = [];
   private lstFilters: GfmFilter[] = [];
   private lstTransformers: GfmTransform[] = [];
+  private logLevels: Verbosity = new VbDefault();
 
   constructor(private readonly adapter: Adapter) {}
 
@@ -29,17 +34,20 @@ export default class CfgBuilder {
     return this;
   }
 
+  levels(levels: Verbosity) {
+    this.logLevels = levels;
+    return this;
+  }
+
   transformers(lst: GfmTransform[]) {
     this.lstTransformers = lst;
     return this;
   }
 
-  build() {
-    return {
-      adapter: cloneDeep(this.adapter),
-      fields: [...this.lstField],
-      filters: [...this.lstFilters],
-      transformers: [...this.lstTransformers]
-    };
+  build(): CfgConfig {
+    return new CfgConfig(
+      this.adapter, uniqBy(this.lstField, 'name'), this.lstFilters, this.logLevels,
+      this.lstTransformers
+    );
   }
 }

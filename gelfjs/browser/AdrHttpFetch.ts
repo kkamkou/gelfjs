@@ -15,18 +15,14 @@ export default class AdrHttpFetch implements Adapter {
   constructor(
     private readonly requestInfo: RequestInfo,
     private readonly requestInit?: RequestInit
-  ) {
-      /*if (!window.fetch) {
-        throw Error("Fetch API is not supported by the browser");
-      }*/
-  }
+  ) {}
 
-  async init(): Promise<unknown> {
+  async init(): Promise<void> {
     // this adapter has no set-up functionality
     return Promise.resolve();
   }
 
-  async destroy(): Promise<unknown> {
+  async destroy(): Promise<void> {
     // this adapter has no tear-down functionality
     return Promise.resolve();
   }
@@ -43,7 +39,7 @@ export default class AdrHttpFetch implements Adapter {
     private adapter: AdrHttpFetch;
 
     constructor(url: string, options: object) {
-      this.adapter = new AdrHttpFetch(url);
+      this.adapter = new AdrHttpFetch(url, options as RequestInit);
     }
 
     async send(message: GfMessage): Promise<Response> {

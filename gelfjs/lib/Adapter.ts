@@ -9,7 +9,7 @@
 import GfMessage from "./GfMessage";
 
 export default interface Adapter {
-  init(): Promise<void>;
-  destroy(): Promise<void>;
-  send(message: GfMessage): Promise<void>;
+  init(): Promise<unknown>;
+  destroy(): Promise<unknown>;
+  send(message: GfMessage): Promise<unknown>;
 }

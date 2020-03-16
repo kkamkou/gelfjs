@@ -28,6 +28,10 @@ export default class GfMessage {
     const obj = this.toJSON(),
       result: {[idx: string]: string | number} = {};
 
+    if (!isUndefined(obj.id)) {
+      throw Error(`The "id" field isn't allowed by the specification`);
+    }
+
     // some fields should be copied without change
     ['full_message', 'short_message', 'level', 'host', 'timestamp'].forEach(function (key) {
       if (!isUndefined(obj[key])) {
@@ -40,8 +44,8 @@ export default class GfMessage {
     // 32766 bytes is the maximum length for a field
     const recursion = function (input: object, prefix?: string): void {
       forOwn(input, function (value, key) {
-        if ((/[^\w-.]/).test(key)) {
-          throw SyntaxError(`Key format is not valid (${key})`);
+        if (/[^\w\-.]/.test(key)) { // #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          throw Error(`Key format is not valid (${key})`);
         }
         if (isPlainObject(value)) {
           return recursion(value, prefix ? [prefix, key].join('_') : key);

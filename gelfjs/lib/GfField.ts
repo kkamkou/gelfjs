@@ -8,10 +8,12 @@
 
 import { isFunction } from "lodash";
 
+export type TypeFieldValue = string | number | object | (() => string | number | object);
+
 export default class GfField {
   constructor(
     private readonly label: string,
-    private readonly value: string | number | (() => string | number)
+    private readonly value: TypeFieldValue
   ) {}
 
   get name() {

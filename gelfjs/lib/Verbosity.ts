@@ -6,15 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-enum LgLevel {
-  EMERGENCY,
-  ALERT,
-  CRITICAL,
-  ERROR,
-  WARNING,
-  NOTICE,
-  INFO,
-  DEBUG
+export default interface Verbosity {
+  aliases(): {[k: string]: string};
+  levels(): {[k: string]: number};
 }
-
-export default LgLevel;
