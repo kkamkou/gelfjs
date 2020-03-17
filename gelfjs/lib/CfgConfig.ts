@@ -9,18 +9,18 @@
 import { cloneDeep } from "lodash";
 
 import Adapter from "./Adapter";
-import GfField from "./GfField";
-import GfmFilter from "./GfmFilter";
-import GfmTransform from "./GfmTransform";
+import GfcField from "./GfcField";
+import GfcFilter from "./GfcFilter";
+import GfcTransform from "./GfcTransform";
 import Verbosity from "./Verbosity";
 
 export default class CfgConfig {
   constructor(
     private readonly _adapter: Adapter,
-    private readonly _fields: GfField[],
-    private readonly _filters: GfmFilter[],
+    private readonly _fields: GfcField[],
+    private readonly _filters: GfcFilter[],
     private readonly _verbosity: Verbosity,
-    private readonly _transformers: GfmTransform[]
+    private readonly _transformers: GfcTransform[]
   ) {}
 
   adapter() {

@@ -6,15 +6,14 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { keys } from "lodash";
+import { forEach } from "lodash";
 
 import Adapter from "./Adapter";
 import CfgBuilder from "./CfgBuilder";
 import CfgConfig from "./CfgConfig";
-import GfField, { TypeFieldValue } from "./GfField";
+import GfcField, { TypeFieldValue } from "./GfcField";
+import GfCollection from "./GfCollection";
 import GfMessage from "./GfMessage";
-
-// move  fields to collection
 
 export default class GelfJs {
   constructor(private readonly config: CfgConfig) {}
@@ -27,19 +26,29 @@ export default class GelfJs {
     private gelfJs: GelfJs;
 
     constructor(adapter: Adapter) {
-      this.gelfJs = new GelfJs(new CfgBuilder(adapter).build());
+      const config = new CfgBuilder(adapter).build();
+      forEach(config.verbosity().levels(), (lvl, lvlName) => {
+        (this as any)[lvlName] = (message: string, extra: {[k: string]: TypeFieldValue}):
+          Promise<unknown> => this.message(message, lvl, extra)
+      });
+      forEach(config.verbosity().aliases(), (lvlName, alias) => {
+        (this as any)[alias] = (this as any)[lvlName];
+      });
+      this.gelfJs = new GelfJs(config);
     }
 
     async message(
-      message: string, lvl: number, extra: {[k: string]: TypeFieldValue}
+      message: string, level: number, extra: {[k: string]: TypeFieldValue}
     ): Promise<unknown> {
-      const fields = this.gelfJs.config.fields().concat([
-        new GfField('level', lvl),
-        new GfField('short_message', message),
-        ...keys(extra).map(key => new GfField(key, extra[key]))
-      ]);
+      let fields = GfCollection.fromObject(extra)
+        .addAll(this.gelfJs.config.fields())
+        .add(new GfcField('level', level))
+        .add(new GfcField('short_message', message));
 
       try {
+        for (const transformer of this.gelfJs.config.transformers()) {
+          fields = await transformer.transform(fields);
+        }
         await Promise.all(this.gelfJs.config.filters().map(filter => filter.accept(fields)));
       } catch (e) {
         return Promise.reject(e);

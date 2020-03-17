@@ -1,7 +1,7 @@
-import GfField from "../../gelfjs/lib/GfField";
+import GfcField from "../../gelfjs/lib/GfcField";
 
 test('create simple field', () => {
-  const field = new GfField('facility', 'example');
+  const field = new GfcField('facility', 'example');
   expect(field.name).toEqual('facility');
   expect(field.content).toEqual('example');
 });
@@ -14,7 +14,7 @@ test('create field with dynamic content', () => {
     return date;
   }
 
-  const field = new GfField('facility', fnc);
+  const field = new GfcField('facility', fnc);
   expect(field.name).toEqual('facility');
   expect(field.content).toEqual(date);
 });

@@ -6,9 +6,8 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import GfMessage from "./GfMessage";
-import GfField from "./GfField";
+import GfCollection from "./GfCollection";
 
-export default interface GfmTransform {
-  transform(fields: GfField[]): Promise<GfMessage>;
+export default interface GfcTransform {
+  transform(collection: GfCollection): Promise<GfCollection>;
 }

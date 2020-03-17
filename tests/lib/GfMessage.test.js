@@ -1,9 +1,10 @@
 import GfMessage from "../../gelfjs/lib/GfMessage";
-import GfField from "../../gelfjs/lib/GfField";
+import GfcField from "../../gelfjs/lib/GfcField";
+import GfCollection from "../../gelfjs/lib/GfCollection";
 
 test('build an empty payload by the spec', () => {
   const timestamp = Math.floor(Date.now() / 1000),
-    msg = new GfMessage([new GfField('timestamp', timestamp)]),
+    msg = new GfMessage(new GfCollection([new GfcField('timestamp', timestamp)])),
     expected = {
       'short_message': 'No message',
       'host': 'unknown',

@@ -8,7 +8,7 @@
 
 import { forOwn, isFinite, isPlainObject, isUndefined, merge, toString, truncate } from "lodash";
 import GelfSpec from "./GelfSpec";
-import GfField from "./GfField";
+import GfCollection from "./GfCollection";
 
 export default class GfMessage {
   private readonly obj: GelfSpec = {
@@ -18,10 +18,10 @@ export default class GfMessage {
     version: '1.1'
   };
 
-  constructor(private readonly fields?: GfField[]) {}
+  constructor(private readonly fdCollection?: GfCollection) {}
 
   toJSON() {
-    return merge({}, this.obj, ...(this.fields || []).map(field => field.toJSON()));
+    return merge({}, this.obj, ...(this.fdCollection?.toJSON() || []));
   }
 
   toString(): string {

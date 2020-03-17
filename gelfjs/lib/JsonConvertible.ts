@@ -6,8 +6,6 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import GfField from "./GfField";
-
-export default interface GfmFilter {
-  accept(fields: GfField[]): Promise<boolean>;
+export default interface JsonConvertible {
+  toJSON(): object;
 }

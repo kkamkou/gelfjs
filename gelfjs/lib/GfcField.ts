@@ -7,10 +7,11 @@
  */
 
 import { isFunction } from "lodash";
+import JsonConvertible from "./JsonConvertible";
 
 export type TypeFieldValue = string | number | object | (() => string | number | object);
 
-export default class GfField {
+export default class GfcField implements JsonConvertible {
   constructor(
     private readonly label: string,
     private readonly value: TypeFieldValue
