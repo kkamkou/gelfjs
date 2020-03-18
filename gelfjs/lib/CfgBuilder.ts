@@ -6,8 +6,6 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { uniqBy } from "lodash";
-
 import Adapter from "./Adapter";
 import CfgConfig from "./CfgConfig";
 import GfcField from "./GfcField";
@@ -47,8 +45,7 @@ export default class CfgBuilder {
 
   build(): CfgConfig {
     return new CfgConfig(
-      this.adapter, uniqBy(this.lstField, 'name'), this.lstFilters, this.logLevels,
-      this.lstTransformers
+      this.adapter, this.lstField, this.lstFilters, this.lstTransformers, this.logLevels
     );
   }
 }

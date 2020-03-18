@@ -7,16 +7,20 @@
  */
 
 import { cloneDeep, keys } from "lodash";
+
+import ArrayConvertible from "./ArrayConvertible";
 import GfcField, { TypeFieldValue } from "./GfcField";
 import JsonConvertible from "./JsonConvertible";
 
-export default class GfCollection implements JsonConvertible {
-  constructor(
-    private readonly fields: GfcField[]
-  ) {}
+export default class GfCollection implements ArrayConvertible, JsonConvertible {
+  private readonly fields: GfcField[] = [];
+
+  constructor(entries: GfcField[]) {
+    this.addAll(entries);
+  }
 
   add(field: GfcField) {
-    this.fields.push(cloneDeep(field));
+    this.fields.push(field);
     return this;
   }
 

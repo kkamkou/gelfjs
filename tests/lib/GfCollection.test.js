@@ -12,7 +12,7 @@ test('accept constructor arguments', () => {
   expect(collection.toJSON()).toEqual([{raw: 'value_raw'}, {cb: 'value_cb'}]);
 });
 
-test('be crated from a plain object', () => {
+test('be created from a plain object', () => {
   const obj = {tom: 'cat', dogs: [{spike: 'bulldog', tyke: 'son of spike'}]};
   const collection = GfCollection.fromObject(obj);
 
@@ -32,6 +32,16 @@ test('accept more entries', () => {
 
   collection.addAll(fields);
   expect(collection.toArray()).toEqual([field, ...fields]);
+});
+
+test('handle duplicate entries', () => {
+  const field1 = new GfcField('name', 'value'),
+    field2 = new GfcField('name', 'value'),
+    collection = new GfCollection([field1]);
+
+  collection.add(field2);
+
+  expect(collection.toArray()).toHaveLength(1);
 });
 
 test('preserve the state', () => {

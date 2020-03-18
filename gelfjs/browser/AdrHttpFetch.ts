@@ -36,7 +36,7 @@ export default class AdrHttpFetch implements Adapter {
   }
 
   static Smart = class {
-    private adapter: AdrHttpFetch;
+    adapter: AdrHttpFetch;
 
     constructor(url: string, options: object) {
       this.adapter = new AdrHttpFetch(url, options as RequestInit);

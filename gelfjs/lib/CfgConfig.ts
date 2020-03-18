@@ -19,8 +19,8 @@ export default class CfgConfig {
     private readonly _adapter: Adapter,
     private readonly _fields: GfcField[],
     private readonly _filters: GfcFilter[],
-    private readonly _verbosity: Verbosity,
-    private readonly _transformers: GfcTransform[]
+    private readonly _transformers: GfcTransform[],
+    private readonly _verbosity: Verbosity
   ) {}
 
   adapter() {

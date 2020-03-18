@@ -6,10 +6,6 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-export default interface GelfSpec {
-  host: string;
-  short_message: string; // eslint-disable-line
-  timestamp: number;
-  version: '1.1';
-  [k: string]: string | number;
+export default interface ArrayConvertible {
+  toArray(): object;
 }

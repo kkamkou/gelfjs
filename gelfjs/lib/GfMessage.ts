@@ -7,20 +7,21 @@
  */
 
 import { forOwn, isFinite, isPlainObject, isUndefined, merge, toString, truncate } from "lodash";
+
 import GelfSpec from "./GelfSpec";
 import GfCollection from "./GfCollection";
 
 export default class GfMessage {
-  private readonly obj: GelfSpec = {
+  private readonly obj: Required<GelfSpec> = {
     host: 'unknown',
     short_message: 'No message', // eslint-disable-line
     timestamp: Math.floor(Date.now() / 1000),
-    version: '1.1'
+    version: "1.1"
   };
 
   constructor(private readonly fdCollection?: GfCollection) {}
 
-  toJSON() {
+  toJSON(): Partial<GelfSpec> {
     return merge({}, this.obj, ...(this.fdCollection?.toJSON() || []));
   }
 
@@ -35,7 +36,7 @@ export default class GfMessage {
     // some fields should be copied without change
     ['full_message', 'short_message', 'level', 'host', 'timestamp'].forEach(function (key) {
       if (!isUndefined(obj[key])) {
-        result[key] = obj[key];
+        result[key] = obj[key] as string | number;
         delete obj[key];
       }
     });

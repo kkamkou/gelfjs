@@ -23,7 +23,7 @@ export default class GelfJs {
   }
 
   static Smart = class {
-    private gelfJs: GelfJs;
+    gelfJs: GelfJs;
 
     constructor(adapter: Adapter) {
       const config = new CfgBuilder(adapter).build();
