@@ -1,8 +1,10 @@
-engines:
+version: "2"
+plugins:
   eslint:
     enabled: true
     channel: "eslint-6"
-
-ratings:
-  paths:
-    - gelfjs/**
+exclude_patterns:
+  - "tests/"
+  - "dist/"
+  - "**/node_modules/"
+  - "**/*.d.ts"
