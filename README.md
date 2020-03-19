@@ -13,5 +13,4 @@ GELF - The Graylog Extended Log Format.
 - [Yarn repository](https://yarnpkg.com/package/gelfjs)
 
 #### License
-
 [MIT](LICENSE)
