@@ -42,9 +42,8 @@ jobs:
     - run: |
         npm install -g yarn
         yarn install
-        yarn run coverage
-    - uses: paambaati/codeclimate-action@v2.2.4
+    - uses: paambaati/codeclimate-action@v2.5.5
       env:
         CC_TEST_REPORTER_ID: a262dc82b33d987337a92bbd7089fdcac0cf5ab63097e247c32ccc27e661391f
       with:
-        coverageCommand: yarn coverage
+        coverageCommand: yarn run coverage
