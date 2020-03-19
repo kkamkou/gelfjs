@@ -3,15 +3,15 @@ name: CI
 on:
   push:
     branches: [ master ]
-    tags:
-      - '!*'
-    paths:
-      - gelfjs/*
-      - tests/*
-  pull_request:
-    branches: [ master ]
-    paths:
-      - '!*.MD'
+#    tags:
+#      - '!*'
+#    paths:
+#      - gelfjs/*
+#      - tests/*
+#  pull_request:
+#    branches: [ master ]
+#    paths:
+#      - '!*.MD'
 
 jobs:
   test:
