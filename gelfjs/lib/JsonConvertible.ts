@@ -7,5 +7,5 @@
  */
 
 export default interface JsonConvertible {
-  toJSON(): object;
+  toJSON(): unknown;
 }

@@ -7,5 +7,5 @@
  */
 
 export default interface ArrayConvertible {
-  toArray(): object;
+  toArray(): unknown[];
 }

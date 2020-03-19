@@ -35,13 +35,8 @@ test('accept more entries', () => {
 });
 
 test('handle duplicate entries', () => {
-  const field1 = new GfcField('name', 'value'),
-    field2 = new GfcField('name', 'value'),
-    collection = new GfCollection([field1]);
-
-  collection.add(field2);
-
-  expect(collection.toArray()).toHaveLength(1);
+  const field = new GfcField('name', 'value');
+  expect((new GfCollection([field])).add(field).toArray()).toHaveLength(1);
 });
 
 test('preserve the state', () => {

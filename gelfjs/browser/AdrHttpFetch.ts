@@ -8,6 +8,7 @@
 
 import fetch from "isomorphic-fetch";
 import { merge } from "lodash";
+
 import Adapter from "../lib/Adapter";
 import GfMessage from "../lib/GfMessage";
 

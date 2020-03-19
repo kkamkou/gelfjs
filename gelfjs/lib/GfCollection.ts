@@ -13,14 +13,14 @@ import GfcField, { TypeFieldValue } from "./GfcField";
 import JsonConvertible from "./JsonConvertible";
 
 export default class GfCollection implements ArrayConvertible, JsonConvertible {
-  private readonly fields: GfcField[] = [];
+  private readonly fields = new Set<GfcField>();
 
   constructor(entries: GfcField[]) {
     this.addAll(entries);
   }
 
   add(field: GfcField) {
-    this.fields.push(field);
+    this.fields.add(field);
     return this;
   }
 
@@ -34,7 +34,7 @@ export default class GfCollection implements ArrayConvertible, JsonConvertible {
   }
 
   toArray(): GfcField[] {
-    return cloneDeep(this.fields);
+    return cloneDeep(Array.from(this.fields));
   }
 
   static fromObject(obj: {[k: string]: TypeFieldValue}): GfCollection {
