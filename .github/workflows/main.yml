@@ -27,9 +27,8 @@ jobs:
       with:
         node-version: ${{ matrix.node }}
     - run: |
-        npm install -g yarn
-        yarn install
-        yarn test
+        npm install
+        npm test
   coverage:
     needs: [ test ]
     name: coverage
@@ -40,10 +39,9 @@ jobs:
       with:
         node-version: '12'
     - run: |
-        npm install -g yarn
-        yarn install
+        npm install
     - uses: paambaati/codeclimate-action@v2.5.5
       env:
         CC_TEST_REPORTER_ID: a262dc82b33d987337a92bbd7089fdcac0cf5ab63097e247c32ccc27e661391f
       with:
-        coverageCommand: yarn run coverage
+        coverageCommand: npm run coverage
