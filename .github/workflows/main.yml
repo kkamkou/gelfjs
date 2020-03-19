@@ -30,7 +30,7 @@ jobs:
         npm install -g yarn
         yarn install
         yarn test
-        yarn coverage
+        yarn run coverage
   coverage:
     needs: [ test ]
     name: coverage
