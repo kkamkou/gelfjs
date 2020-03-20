@@ -46,7 +46,7 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "coverage": "jest --collect-coverage",
-    "test": "jest"
+    "coverage": "tsc && jest --collect-coverage",
+    "test": "tsc && jest"
   }
 }
