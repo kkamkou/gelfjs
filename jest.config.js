@@ -3,9 +3,6 @@
 
 module.exports = {
   bail: true,
-  moduleNameMapper: {
-    '^lodash-es$': 'lodash'
-  },
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,

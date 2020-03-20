@@ -12,7 +12,7 @@ import { merge } from "lodash";
 import Adapter from "./Adapter";
 import GfMessage from "./GfMessage";
 
-export default class AdrHttpFetch implements Adapter {
+class AdrHttpFetch implements Adapter {
   constructor(
     private readonly requestInfo: RequestInfo,
     private readonly requestInit?: RequestInit
@@ -48,3 +48,5 @@ export default class AdrHttpFetch implements Adapter {
     }
   }
 }
+
+export = AdrHttpFetch;

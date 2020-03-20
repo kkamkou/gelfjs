@@ -7,14 +7,15 @@
  */
 
 import { isFunction } from "lodash";
+
+import { GfcFieldValue } from "./types";
+
 import JsonConvertible from "./JsonConvertible";
 
-export type TypeFieldValue = string | number | object;
-
-export default class GfcField implements JsonConvertible {
+class GfcField implements JsonConvertible {
   constructor(
     private readonly label: string,
-    private readonly value: TypeFieldValue | (() => TypeFieldValue)
+    private readonly value: GfcFieldValue | (() => GfcFieldValue)
   ) {}
 
   get name() {
@@ -29,3 +30,5 @@ export default class GfcField implements JsonConvertible {
     return {[this.name]: this.content};
   }
 }
+
+export = GfcField;

@@ -9,10 +9,11 @@
 import { cloneDeep, keys } from "lodash";
 
 import ArrayConvertible from "./ArrayConvertible";
-import GfcField, { TypeFieldValue } from "./GfcField";
+import GfcField from "./GfcField";
 import JsonConvertible from "./JsonConvertible";
+import { GfcFieldValue } from "./types";
 
-export default class GfCollection implements ArrayConvertible, JsonConvertible {
+class GfCollection implements ArrayConvertible, JsonConvertible {
   private readonly fields = new Set<GfcField>();
 
   constructor(entries: GfcField[]) {
@@ -37,7 +38,9 @@ export default class GfCollection implements ArrayConvertible, JsonConvertible {
     return cloneDeep(Array.from(this.fields));
   }
 
-  static fromObject(obj: {[k: string]: TypeFieldValue}): GfCollection {
+  static fromObject(obj: {[k: string]: GfcFieldValue}): GfCollection {
     return new GfCollection([...keys(obj).map(key => new GfcField(key, obj[key]))]);
   }
 }
+
+export = GfCollection;

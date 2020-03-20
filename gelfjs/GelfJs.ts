@@ -8,14 +8,16 @@
 
 import { call, forEach, invokeMap, overEvery } from "lodash";
 
+import { GfcFieldValue } from "./types";
+
 import Adapter from "./Adapter";
 import CfgBuilder from "./CfgBuilder";
 import CfgConfig from "./CfgConfig";
-import GfcField, { TypeFieldValue } from "./GfcField";
+import GfcField from "./GfcField";
 import GfCollection from "./GfCollection";
 import GfMessage from "./GfMessage";
 
-export default class GelfJs {
+class GelfJs {
   constructor(private readonly config: CfgConfig) {}
 
   send(message: GfMessage): Promise<unknown> {
@@ -28,7 +30,7 @@ export default class GelfJs {
     constructor(adapter: Adapter) {
       const config = new CfgBuilder(adapter).build();
       forEach(config.verbosity().levels(), (lvl, lvlName) => {
-        (this as any)[lvlName] = (message: string, extra: {[k: string]: TypeFieldValue}):
+        (this as any)[lvlName] = (message: string, extra: {[k: string]: GfcFieldValue}):
           Promise<unknown> => this.message(message, lvl, extra)
       });
       forEach(config.verbosity().aliases(), (lvlName, alias) => {
@@ -38,7 +40,7 @@ export default class GelfJs {
     }
 
     async message(
-      message: string, level: number, extra: {[k: string]: TypeFieldValue}
+      message: string, level: number, extra: {[k: string]: GfcFieldValue}
     ): Promise<unknown> {
       const collection = GfCollection.fromObject(extra)
         .addAll(this.gelfJs.config.fields())
@@ -59,3 +61,5 @@ export default class GelfJs {
     }
   }
 }
+
+export = GelfJs;

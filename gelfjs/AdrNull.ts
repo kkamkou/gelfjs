@@ -9,7 +9,7 @@
 import Adapter from "./Adapter";
 import GfMessage from "./GfMessage";
 
-export default class AdrNull implements Adapter {
+class AdrNull implements Adapter {
   destroy(): Promise<void> {
     return Promise.resolve();
   }
@@ -23,3 +23,5 @@ export default class AdrNull implements Adapter {
     return Promise.resolve();
   }
 }
+
+export = AdrNull;

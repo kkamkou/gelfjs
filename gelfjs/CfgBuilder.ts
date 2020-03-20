@@ -15,7 +15,7 @@ import GfcTransformFieldExclude from "./GfcTransformFieldExclude";
 import VbDefault from "./VbDefault";
 import Verbosity from "./Verbosity";
 
-export default class CfgBuilder {
+class CfgBuilder {
   private lstField: GfcField[] = [];
   private lstFilters: GfcFilter[] = [];
   private lstTransformers: GfcTransform[] = [new GfcTransformFieldExclude(['id'])];
@@ -49,3 +49,5 @@ export default class CfgBuilder {
     );
   }
 }
+
+export = CfgBuilder;

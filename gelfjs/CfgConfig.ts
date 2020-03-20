@@ -14,7 +14,7 @@ import GfcFilter from "./GfcFilter";
 import GfcTransform from "./GfcTransform";
 import Verbosity from "./Verbosity";
 
-export default class CfgConfig {
+class CfgConfig {
   constructor(
     private readonly _adapter: Adapter,
     private readonly _fields: GfcField[],
@@ -44,3 +44,4 @@ export default class CfgConfig {
   }
 }
 
+export = CfgConfig;

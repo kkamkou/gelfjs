@@ -12,7 +12,7 @@ import GelfSpec from "./GelfSpec";
 import GfCollection from "./GfCollection";
 import JsonConvertible from "./JsonConvertible";
 
-export default class GfMessage implements JsonConvertible {
+class GfMessage implements JsonConvertible {
   private readonly obj: Required<GelfSpec> = {
     host: 'unknown',
     short_message: 'No message', // eslint-disable-line
@@ -65,3 +65,5 @@ export default class GfMessage implements JsonConvertible {
     return JSON.stringify(result);
   }
 }
+
+export = GfMessage;

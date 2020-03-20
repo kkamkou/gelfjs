@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "es6", "es7", "es2017"],
+    "module": "umd",
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "outDir": "./dist",
@@ -15,7 +16,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es2016"
+    "target": "es5"
   }
 }
 
@@ -54,7 +55,6 @@
 // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
 // "typeRoots": [],                       /* List of folders to include type definitions from. */
 // "types": [],                           /* Type declaration files to be included in compilation. */
-// "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
 // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
 // "allowUmdGlobalAccess": true,          /* Allow accessing UMD globals from modules. */
 

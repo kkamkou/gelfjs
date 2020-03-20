@@ -1,6 +1,6 @@
-import AdrHttpFetch from "../gelfjs/AdrHttpFetch";
-import GfMessage from "../gelfjs/GfMessage";
-import GelfJs from "../gelfjs/GelfJs";
+import AdrHttpFetch from "../dist/AdrHttpFetch";
+import GfMessage from "../dist/GfMessage";
+import GelfJs from "../dist/GelfJs";
 
 xtest('asd', async () => {
   const gelfjs = new GelfJs.Smart(new AdrHttpFetch.Smart("http://xxx/gelf")),

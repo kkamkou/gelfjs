@@ -8,7 +8,7 @@
 
 import Verbosity from "./Verbosity";
 
-export default class VbDefault implements Verbosity {
+class VbDefault implements Verbosity {
   aliases(): { [p: string]: string } {
     return {log: 'debug', warn: 'warning'};
   }
@@ -26,3 +26,5 @@ export default class VbDefault implements Verbosity {
     };
   }
 }
+
+export = VbDefault;

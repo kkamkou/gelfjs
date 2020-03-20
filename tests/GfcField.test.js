@@ -1,4 +1,4 @@
-import GfcField from "../gelfjs/GfcField";
+import GfcField from "../dist/GfcField";
 
 test('create simple field', () => {
   const field = new GfcField('facility', 'example');

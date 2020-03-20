@@ -9,7 +9,7 @@
 import GfCollection from "./GfCollection";
 import GfcTransform from "./GfcTransform";
 
-export default class GfcTransformFieldExclude implements GfcTransform {
+class GfcTransformFieldExclude implements GfcTransform {
   constructor(private readonly fieldsToFilter: string[]) {
     if (!fieldsToFilter.length) {
       throw new Error('At least one name of the field is needed, none given');
@@ -21,3 +21,5 @@ export default class GfcTransformFieldExclude implements GfcTransform {
     return new GfCollection(fields);
   }
 }
+
+export = GfcTransformFieldExclude;

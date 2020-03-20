@@ -1,6 +1,6 @@
-import GfMessage from "../gelfjs/GfMessage";
-import GfcField from "../gelfjs/GfcField";
-import GfCollection from "../gelfjs/GfCollection";
+import GfMessage from "../dist/GfMessage";
+import GfcField from "../dist/GfcField";
+import GfCollection from "../dist/GfCollection";
 
 test('build an empty payload by the spec', () => {
   const timestamp = Math.floor(Date.now() / 1000),

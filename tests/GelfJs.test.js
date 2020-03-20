@@ -1,5 +1,5 @@
-import GelfJs from "../gelfjs/GelfJs";
-import AdrNull from "../gelfjs/AdrNull";
+import GelfJs from "../dist/GelfJs";
+import AdrNull from "../dist/AdrNull";
 
 test('create simple field', async () => {
   const smart = new GelfJs.Smart(new AdrNull());

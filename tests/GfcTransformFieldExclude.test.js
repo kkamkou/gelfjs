@@ -1,6 +1,6 @@
-import GfcField from "../gelfjs/GfcField";
-import GfCollection from "../gelfjs/GfCollection";
-import GfcTransformFieldExclude from "../gelfjs/GfcTransformFieldExclude";
+import GfcField from "../dist/GfcField";
+import GfCollection from "../dist/GfCollection";
+import GfcTransformFieldExclude from "../dist/GfcTransformFieldExclude";
 
 test('throw in case on an empty constructor', () => {
   expect(() => new GfcTransformFieldExclude([])).toThrow(Error);
