@@ -9,15 +9,15 @@
 import GfCollection from "./GfCollection";
 import GfcTransform from "./GfcTransform";
 
-export default class GfcTransformFieldReject implements GfcTransform {
+export default class GfcTransformFieldExclude implements GfcTransform {
   constructor(private readonly fieldsToFilter: string[]) {
     if (!fieldsToFilter.length) {
       throw new Error('At least one name of the field is needed, none given');
     }
   }
 
-  transform(collection: GfCollection): Promise<GfCollection> {
+  transform(collection: GfCollection): GfCollection {
     const fields = collection.toArray().filter(field => !this.fieldsToFilter.includes(field.name));
-    return Promise.resolve(new GfCollection(fields));
+    return new GfCollection(fields);
   }
 }

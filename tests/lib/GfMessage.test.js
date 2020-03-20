@@ -13,3 +13,18 @@ test('build an empty payload by the spec', () => {
     };
   expect(JSON.parse(msg.toString())).toEqual(expected);
 });
+
+test('throw if key is forbidden', () => {
+  const msg = new GfMessage(new GfCollection([new GfcField('id', 'value')]));
+  expect(() => msg.toString()).toThrowError(`The "id" field isn't allowed by the specification`);
+});
+
+test('throw if key name is not valid according the spec', () => {
+  const msg = new GfMessage(new GfCollection([new GfcField('extra', {'example%string': 'test'})]));
+  expect(() => msg.toString()).toThrowError(`Key format is not valid (example%string)`);
+});
+
+test('throw in case of nested arrays', () => {
+  const msg = new GfMessage(new GfCollection([new GfcField('extra', [{'field': 'value'}])]));
+  expect(() => msg.toString()).toThrowError(`Array extraction will spoil your elasticsearch index`);
+});

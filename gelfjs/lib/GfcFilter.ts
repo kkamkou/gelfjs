@@ -9,5 +9,5 @@
 import GfCollection from "./GfCollection";
 
 export default interface GfcFilter {
-  accept(collection: GfCollection): Promise<boolean>;
+  accept(collection: GfCollection): boolean;
 }

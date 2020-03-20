@@ -9,5 +9,5 @@
 import GfCollection from "./GfCollection";
 
 export default interface GfcTransform {
-  transform(collection: GfCollection): Promise<GfCollection>;
+  transform(collection: GfCollection): GfCollection;
 }

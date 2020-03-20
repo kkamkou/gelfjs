@@ -12,7 +12,7 @@ import GfcFilter from "./GfcFilter";
 export default class GfcFilterFunction implements GfcFilter {
   constructor(private readonly fnc: Function) {}
 
-  accept(collection: GfCollection): Promise<boolean> {
+  accept(collection: GfCollection): boolean {
     return this.fnc.call(undefined, collection);
   }
 }

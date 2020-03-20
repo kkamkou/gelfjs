@@ -49,6 +49,9 @@ export default class GfMessage implements JsonConvertible {
         if (/[^\w\-.]/.test(key)) { // #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           throw Error(`Key format is not valid (${key})`);
         }
+        if (Array.isArray(value)) {
+          throw Error('Array extraction will spoil your elasticsearch index');
+        }
         if (isPlainObject(value)) {
           return recursion(value, prefix ? [prefix, key].join('_') : key);
         }

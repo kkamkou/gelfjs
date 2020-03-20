@@ -6,7 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { forEach } from "lodash";
+import { call, forEach, invokeMap, overEvery } from "lodash";
 
 import Adapter from "./Adapter";
 import CfgBuilder from "./CfgBuilder";
@@ -40,21 +40,22 @@ export default class GelfJs {
     async message(
       message: string, level: number, extra: {[k: string]: TypeFieldValue}
     ): Promise<unknown> {
-      let fields = GfCollection.fromObject(extra)
+      const collection = GfCollection.fromObject(extra)
         .addAll(this.gelfJs.config.fields())
         .add(new GfcField('level', level))
         .add(new GfcField('short_message', message));
 
-      try {
-        for (const transformer of this.gelfJs.config.transformers()) {
-          fields = await transformer.transform(fields);
-        }
-        await Promise.all(this.gelfJs.config.filters().map(filter => filter.accept(fields)));
-      } catch (e) {
-        return Promise.reject(e);
+      const transformers = this.gelfJs.config.transformers();
+      if (transformers.length) {
+        invokeMap(transformers.map(t => t.transform.bind(t)), call, undefined, collection);
       }
 
-      return this.gelfJs.send(new GfMessage(fields));
+      const filters = this.gelfJs.config.filters();
+      if (filters.length && !overEvery(filters.map(f => f.accept.bind(f)))(collection)) {
+        return Promise.reject();
+      }
+
+      return this.gelfJs.send(new GfMessage(collection));
     }
   }
 }
