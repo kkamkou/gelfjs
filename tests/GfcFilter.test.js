@@ -1,6 +1,6 @@
-import GfcField from "../../gelfjs/lib/GfcField";
-import GfcFilterFunction from "../../gelfjs/lib/GfcFilterFunction";
-import GfCollection from "../../gelfjs/lib/GfCollection";
+import GfcField from "../gelfjs/GfcField";
+import GfcFilterFunction from "../gelfjs/GfcFilterFunction";
+import GfCollection from "../gelfjs/GfCollection";
 
 test('filter message out if it contains an invalid field', () => {
   function fnc(collection) {

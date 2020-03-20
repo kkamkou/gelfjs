@@ -9,8 +9,8 @@
 import fetch from "isomorphic-fetch";
 import { merge } from "lodash";
 
-import Adapter from "../lib/Adapter";
-import GfMessage from "../lib/GfMessage";
+import Adapter from "./Adapter";
+import GfMessage from "./GfMessage";
 
 export default class AdrHttpFetch implements Adapter {
   constructor(
@@ -43,7 +43,7 @@ export default class AdrHttpFetch implements Adapter {
       this.adapter = new AdrHttpFetch(url, options as RequestInit);
     }
 
-    async send(message: GfMessage): Promise<Response> {
+    send(message: GfMessage): Promise<Response> {
       return this.adapter.send(message);
     }
   }

@@ -1,5 +1,5 @@
-import GfCollection from "../../gelfjs/lib/GfCollection";
-import GfcField from "../../gelfjs/lib/GfcField";
+import GfCollection from "../gelfjs/GfCollection";
+import GfcField from "../gelfjs/GfcField";
 
 test('accept constructor arguments', () => {
   const fields = [

@@ -18,6 +18,7 @@ export default class AdrNull implements Adapter {
     return Promise.resolve();
   }
 
+  // eslint-disable-next-line
   send(message: GfMessage): Promise<void> {
     return Promise.resolve();
   }

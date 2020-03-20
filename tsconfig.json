@@ -4,16 +4,18 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "es6", "es7", "es2017"],
     "moduleResolution": "node",
     "noUnusedLocals": true,
+    "outDir": "./dist",
     "removeComments": true,
+    "rootDir": "./gelfjs",
     "strict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es2016",
-    "rootDir": "./gelfjs"
+    "target": "es2016"
   }
 }
 

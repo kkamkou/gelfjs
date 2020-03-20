@@ -1,5 +1,5 @@
-import CfgBuilder from "../../gelfjs/lib/CfgBuilder";
-import AdrNull from "../../gelfjs/lib/AdrNull";
+import CfgBuilder from "../gelfjs/CfgBuilder";
+import AdrNull from "../gelfjs/AdrNull";
 
 test('provide default presets', () => {
   const config = new CfgBuilder(new AdrNull()).build();
