@@ -6,7 +6,6 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import fetch from "isomorphic-fetch";
 import { merge } from "lodash";
 
 import Adapter from "./Adapter";
@@ -34,10 +33,6 @@ class AdrHttpFetch implements Adapter {
       this.requestInit
     );
     return fetch(new Request(this.requestInfo, init));
-  }
-
-  static smart(url: string, options?: object): AdrHttpFetch {
-    return new AdrHttpFetch(url, options as RequestInit);
   }
 }
 

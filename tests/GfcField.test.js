@@ -2,8 +2,8 @@ import GfcField from "../dist/GfcField";
 
 test('create simple field', () => {
   const field = new GfcField('facility', 'example');
-  expect(field.name).toEqual('facility');
-  expect(field.content).toEqual('example');
+  expect(field.name()).toEqual('facility');
+  expect(field.content()).toEqual('example');
 });
 
 test('create field with dynamic content', () => {
@@ -15,6 +15,6 @@ test('create field with dynamic content', () => {
   }
 
   const field = new GfcField('facility', fnc);
-  expect(field.name).toEqual('facility');
-  expect(field.content).toEqual(date);
+  expect(field.name()).toEqual('facility');
+  expect(field.content()).toEqual(date);
 });
