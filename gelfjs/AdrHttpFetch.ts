@@ -6,7 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { merge } from "lodash";
+import {merge} from "lodash";
 
 import Adapter from "./Adapter";
 import GfMessage from "./GfMessage";

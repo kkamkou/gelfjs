@@ -6,12 +6,12 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { cloneDeep, keys } from "lodash";
+import {cloneDeep, keys} from "lodash";
 
 import ArrayConvertible from "./ArrayConvertible";
 import GfcField from "./GfcField";
 import JsonConvertible from "./JsonConvertible";
-import { GfcFieldValue } from "./types";
+import {TypeGfcField} from "./types";
 
 class GfCollection implements ArrayConvertible, JsonConvertible {
   private readonly fields = new Set<GfcField>();
@@ -38,7 +38,7 @@ class GfCollection implements ArrayConvertible, JsonConvertible {
     return cloneDeep(Array.from(this.fields));
   }
 
-  static fromObject(obj: {[k: string]: GfcFieldValue}): GfCollection {
+  static fromObject(obj: TypeGfcField): GfCollection {
     return new GfCollection([...keys(obj).map(key => new GfcField(key, obj[key]))]);
   }
 }

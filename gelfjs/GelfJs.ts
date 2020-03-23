@@ -8,7 +8,7 @@
 
 import {call, forEach, invokeMap, overEvery} from "lodash";
 
-import {GfcFieldValue} from "./types";
+import {TypeGfcField} from "./types";
 
 import Adapter from "./Adapter";
 import CfgBuilder from "./CfgBuilder";
@@ -23,7 +23,7 @@ class GelfJs {
   constructor(adapter: Adapter) {
     this.config = new CfgBuilder(adapter).build();
     forEach(this.config.verbosity().levels(), (lvl, lvlName) => {
-      (this as any)[lvlName] = (message: string, extra: {[k: string]: GfcFieldValue}):
+      (this as any)[lvlName] = (message: string, extra: TypeGfcField):
         Promise<unknown> => this.message(message, lvl, extra)
     });
     forEach(this.config.verbosity().aliases(), (lvlName, alias) => {
@@ -31,9 +31,7 @@ class GelfJs {
     });
   }
 
-  async message(
-    message: string, level: number, extra?: {[k: string]: GfcFieldValue}
-  ): Promise<unknown> {
+  async message(message: string, level: number, extra?: TypeGfcField): Promise<unknown> {
     const collection = GfCollection.fromObject(extra || {})
       .addAll(this.config.fields())
       .add(new GfcField('level', level))

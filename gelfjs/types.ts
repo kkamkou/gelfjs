@@ -6,4 +6,5 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-export type GfcFieldValue = string | number | object;
+export type TypeGfcFieldValue = string | number | object;
+export type TypeGfcField = {[k: string]: TypeGfcFieldValue};

@@ -6,7 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { cloneDeep } from "lodash";
+import {cloneDeep} from "lodash";
 
 import Adapter from "./Adapter";
 import GfcField from "./GfcField";

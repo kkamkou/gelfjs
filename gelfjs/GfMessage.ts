@@ -6,7 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { forOwn, isFinite, isPlainObject, isUndefined, merge, toString, truncate } from "lodash";
+import {forOwn, isFinite, isPlainObject, isUndefined, merge, toString, truncate} from "lodash";
 
 import GelfSpec from "./GelfSpec";
 import GfCollection from "./GfCollection";

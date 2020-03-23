@@ -6,16 +6,15 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import { isFunction } from "lodash";
-
-import { GfcFieldValue } from "./types";
+import {isFunction} from "lodash";
 
 import JsonConvertible from "./JsonConvertible";
+import {TypeGfcFieldValue} from "./types";
 
 class GfcField implements JsonConvertible {
   constructor(
     private readonly label: string,
-    private readonly value: GfcFieldValue | (() => GfcFieldValue)
+    private readonly value: TypeGfcFieldValue | (() => TypeGfcFieldValue)
   ) {}
 
   name() {
