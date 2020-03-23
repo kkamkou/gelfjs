@@ -18,17 +18,17 @@ class AdrHttpFetch implements Adapter {
     private readonly requestInit?: RequestInit
   ) {}
 
-  async init(): Promise<void> {
+  init(): Promise<void> {
     // this adapter has no set-up functionality
     return Promise.resolve();
   }
 
-  async destroy(): Promise<void> {
+  destroy(): Promise<void> {
     // this adapter has no tear-down functionality
     return Promise.resolve();
   }
 
-  async send(message: GfMessage): Promise<Response> {
+  send(message: GfMessage): Promise<Response> {
     const init = merge(
       {headers: {'content-type': 'application/json'}, method: 'post', body: message.toString()},
       this.requestInit
@@ -36,16 +36,8 @@ class AdrHttpFetch implements Adapter {
     return fetch(new Request(this.requestInfo, init));
   }
 
-  static Smart = class {
-    adapter: AdrHttpFetch;
-
-    constructor(url: string, options: object) {
-      this.adapter = new AdrHttpFetch(url, options as RequestInit);
-    }
-
-    send(message: GfMessage): Promise<Response> {
-      return this.adapter.send(message);
-    }
+  static smart(url: string, options?: object): AdrHttpFetch {
+    return new AdrHttpFetch(url, options as RequestInit);
   }
 }
 

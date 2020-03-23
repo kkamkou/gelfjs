@@ -17,7 +17,8 @@ class GfcTransformFieldExclude implements GfcTransform {
   }
 
   transform(collection: GfCollection): GfCollection {
-    const fields = collection.toArray().filter(field => !this.fieldsToFilter.includes(field.name));
+    const fields = collection.toArray()
+      .filter(field => !this.fieldsToFilter.includes(field.name()));
     return new GfCollection(fields);
   }
 }

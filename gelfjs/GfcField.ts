@@ -18,16 +18,16 @@ class GfcField implements JsonConvertible {
     private readonly value: GfcFieldValue | (() => GfcFieldValue)
   ) {}
 
-  get name() {
+  name() {
     return this.label;
   }
 
-  get content() {
+  content() {
     return isFunction(this.value) ? (this.value as Function).call(undefined) : this.value;
   }
 
   toJSON() {
-    return {[this.name]: this.content};
+    return {[this.name()]: this.content()};
   }
 }
 

@@ -40,9 +40,9 @@ class GelfJs {
     }
 
     async message(
-      message: string, level: number, extra: {[k: string]: GfcFieldValue}
+      message: string, level: number, extra?: {[k: string]: GfcFieldValue}
     ): Promise<unknown> {
-      const collection = GfCollection.fromObject(extra)
+      const collection = GfCollection.fromObject(extra || {})
         .addAll(this.gelfJs.config.fields())
         .add(new GfcField('level', level))
         .add(new GfcField('short_message', message));
