@@ -12,5 +12,3 @@ npm install gelfjs
 yarn add gelfjs
 ```
 
-
-
