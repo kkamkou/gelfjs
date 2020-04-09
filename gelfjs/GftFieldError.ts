@@ -15,12 +15,11 @@ import GfcTransform from "./GfcTransform";
 class GftFieldError implements GfcTransform {
   transform(collection: GfCollection): GfCollection {
     const fields = collection.toArray().map(field => {
-      if (!isError(field)) {
+      const value = field.content();
+      if (!isError(value)) {
         return field;
       }
-      const error = field.content(),
-        payload = {message: error.message, stack: error.stack};
-      return new GfcField(field.name(), payload);
+      return new GfcField(field.name(), {message: value.message, stack: value.stack});
     });
     return new GfCollection(fields);
   }
