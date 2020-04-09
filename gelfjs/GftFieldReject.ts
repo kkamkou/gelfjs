@@ -11,7 +11,7 @@ import GfCollection from "./GfCollection";
 import GfcTransform from "./GfcTransform";
 
 class GftFieldReject implements GfcTransform {
-  constructor(private readonly additionalFields: string[]) {}
+  constructor(private readonly additionalFields: string[] = []) {}
 
   transform(collection: GfCollection): GfCollection {
     let fields = collection.toArray().filter(field => !FIELD_NAME_REGEXP.test(field.name()));
