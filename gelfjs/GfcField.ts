@@ -22,7 +22,9 @@ class GfcField implements JsonConvertible {
   }
 
   content() {
-    return isFunction(this.value) ? (this.value as Function).call(undefined) : this.value;
+    return isFunction(this.value)
+      ? (this.value as Function).call(undefined)
+      : this.value;
   }
 
   toJSON() {
