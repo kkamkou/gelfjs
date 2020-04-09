@@ -5,7 +5,7 @@ import GfCollection from "../dist/GfCollection";
 test('filter message out if it contains an invalid field', () => {
   function fnc(collection) {
     expect(this).toBeUndefined();
-    return Promise.resolve(collection.toArray().findIndex(f => f.name === 'id') === -1);
+    return Promise.resolve(collection.toArray().findIndex(f => f.name() === 'id') === -1);
   }
 
   const filter = new GfcFilterFunction(fnc);

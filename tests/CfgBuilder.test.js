@@ -6,5 +6,5 @@ test('provide default presets', () => {
   expect(config.adapter()).toBeInstanceOf(AdrNull);
   expect(config.fields()).toHaveLength(0);
   expect(config.filters()).toHaveLength(0);
-  expect(config.transformers()).toHaveLength(1);
+  expect(config.transformers()).toHaveLength(2);
 });

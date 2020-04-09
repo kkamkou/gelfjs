@@ -6,7 +6,7 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-import {call, forEach, invokeMap, overEvery} from "lodash";
+import {call, invokeMap, overEvery} from "lodash";
 
 import {TypeGfcField} from "./types";
 
@@ -22,13 +22,13 @@ class GelfJs {
 
   constructor(adapter: Adapter) {
     this.config = new CfgBuilder(adapter).build();
-    forEach(this.config.verbosity().levels(), (lvl, lvlName) => {
+    /*forEach(this.config.verbosity().levels(), (lvl, lvlName) => {
       (this as any)[lvlName] = (message: string, extra: TypeGfcField):
         Promise<unknown> => this.message(message, lvl, extra)
     });
     forEach(this.config.verbosity().aliases(), (lvlName, alias) => {
       (this as any)[alias] = (this as any)[lvlName];
-    });
+    });*/
   }
 
   async message(message: string, level: number, extra?: TypeGfcField): Promise<unknown> {

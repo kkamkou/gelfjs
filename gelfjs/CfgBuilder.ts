@@ -11,14 +11,18 @@ import CfgConfig from "./CfgConfig";
 import GfcField from "./GfcField";
 import GfcFilter from "./GfcFilter";
 import GfcTransform from "./GfcTransform";
-import GfcTransformFieldExclude from "./GfcTransformFieldExclude";
+import GftFieldError from "./GftFieldError";
+import GftFieldReject from "./GftFieldReject";
 import VbDefault from "./VbDefault";
 import Verbosity from "./Verbosity";
 
 class CfgBuilder {
   private lstField: GfcField[] = [];
   private lstFilters: GfcFilter[] = [];
-  private lstTransformers: GfcTransform[] = [new GfcTransformFieldExclude(['id'])];
+  private lstTransformers: GfcTransform[] = [
+    new GftFieldReject(['id']),
+    new GftFieldError()
+  ];
   private logLevels: Verbosity = new VbDefault();
 
   constructor(private readonly adapter: Adapter) {}
