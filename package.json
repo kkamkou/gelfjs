@@ -1,6 +1,6 @@
 {
   "name": "gelfjs",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "author": "Kanstantsin Kamkou <kkamkou@gmail.com> (http://2ka.by)",
   "description": "Graylog client library for node.js and browser",
   "keywords": [
@@ -36,8 +36,8 @@
     "@babel/preset-env": "^7.9.5",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/lodash-es": "~4.17.3",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
     "babel-jest": "^25.3.0",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.8.2",

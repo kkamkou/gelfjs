@@ -11,8 +11,8 @@ import {overEvery, reduce} from "lodash";
 import {TypeGfcField} from "./types";
 
 import Adapter from "./Adapter";
-import CfgBuilder from "./CfgBuilder";
 import CfgConfig from "./CfgConfig";
+import CfgConfigSmart from "./CfgConfigSmart";
 import GfcField from "./GfcField";
 import GfCollection from "./GfCollection";
 import GfcTransform from "./GfcTransform";
@@ -22,7 +22,7 @@ class GelfJs {
   private readonly config: CfgConfig;
 
   constructor(adapter: Adapter) {
-    this.config = new CfgBuilder(adapter).build();
+    this.config = new CfgConfigSmart(adapter).build();
     /*
       forEach(this.config.verbosity().levels(), (lvl, lvlName) => {
         (this as any)[lvlName] = (message: string, extra: TypeGfcField):

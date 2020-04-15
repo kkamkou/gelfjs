@@ -13,17 +13,14 @@ import GfcFilter from "./GfcFilter";
 import GfcTransform from "./GfcTransform";
 import GftFieldError from "./GftFieldError";
 import GftFieldReject from "./GftFieldReject";
-import VbDefault from "./VbDefault";
-import Verbosity from "./Verbosity";
 
-class CfgBuilder {
+class CfgConfigSmart {
   private lstField: GfcField[] = [];
   private lstFilters: GfcFilter[] = [];
   private lstTransformers: GfcTransform[] = [
     new GftFieldReject(['id']),
     new GftFieldError()
   ];
-  private logLevels: Verbosity = new VbDefault();
 
   constructor(private readonly adapter: Adapter) {}
 
@@ -37,21 +34,14 @@ class CfgBuilder {
     return this;
   }
 
-  levels(levels: Verbosity) {
-    this.logLevels = levels;
-    return this;
-  }
-
   transformers(lst: GfcTransform[]) {
     this.lstTransformers = lst;
     return this;
   }
 
   build(): CfgConfig {
-    return new CfgConfig(
-      this.adapter, this.lstField, this.lstFilters, this.lstTransformers, this.logLevels
-    );
+    return new CfgConfig(this.adapter, this.lstField, this.lstFilters, this.lstTransformers);
   }
 }
 
-export = CfgBuilder;
+export = CfgConfigSmart;

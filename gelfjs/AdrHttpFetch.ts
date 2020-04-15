@@ -32,7 +32,12 @@ class AdrHttpFetch implements Adapter {
       {headers: {'content-type': 'application/json'}, method: 'post', body: message.toString()},
       this.requestInit
     );
-    return fetch(new Request(this.requestInfo, init));
+    return this._fetch()(new Request(this.requestInfo, init));
+  }
+
+  // this function is needed for testing and custom implementations
+  protected _fetch(): Function {
+    return fetch;
   }
 }
 

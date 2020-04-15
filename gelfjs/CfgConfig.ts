@@ -12,15 +12,13 @@ import Adapter from "./Adapter";
 import GfcField from "./GfcField";
 import GfcFilter from "./GfcFilter";
 import GfcTransform from "./GfcTransform";
-import Verbosity from "./Verbosity";
 
 class CfgConfig {
   constructor(
     private readonly _adapter: Adapter,
     private readonly _fields: GfcField[],
     private readonly _filters: GfcFilter[],
-    private readonly _transformers: GfcTransform[],
-    private readonly _verbosity: Verbosity
+    private readonly _transformers: GfcTransform[]
   ) {}
 
   adapter() {
@@ -33,10 +31,6 @@ class CfgConfig {
 
   filters() {
     return cloneDeep(this._filters);
-  }
-
-  verbosity() {
-    return cloneDeep(this._verbosity);
   }
 
   transformers() {
