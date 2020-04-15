@@ -5,7 +5,7 @@ import GelfJs from "../dist/GelfJs";
 import GfMessage from "../dist/GfMessage";
 
 
-test('init and destroy return an empty promise', async () => {
+test('return an empty promise for init and destroy', async () => {
   const adapter = new AdrHttpFetch('http://noname.com');
   await expect(adapter.init()).resolves.not.toThrow();
   await expect(adapter.destroy()).resolves.not.toThrow();
